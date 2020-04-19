@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			.box2{
+				width:100px;
+				height:100px;
+				background:red;
+				
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.4.1/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			/*
+				parent()	父元素
+				children()	方法返回被选元素的所有直接子元素
+				find()		方法返回被选元素的后代元素，一路向下直到最后一个后代。
+			*/
+			$(function(){
+				//所有后代都变
+				//$(".box1").find("li").css("color","red");
+				//直接后代才变化，类似于.box1 > li
+				$(".box1").children("li").css("color","red");
+				$(".box1").parent().css("background-color","#bfa");
+				$("button").eq(0).click(function(){
+					$(".box2").fadeIn(2000);
+				});
+				$("button").eq(1).click(function(){
+					$(".box2").fadeOut(2000);
+				});
+				$("button").eq(2).click(function(){
+					$(".box2").fadeToggle(2000);
+				});
+				$("button").eq(3).click(function(){
+					$(".box2").fadeTo(2000,0.2);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div>
+			<button>淡入</button>
+			<button>淡出</button>
+			<button>淡入淡出</button>
+			<button>修改透明度</button>
+			<div class="box2"></div>
+			<ul class="box1">
+				<li>11111</li>
+				<ul>
+					<li>1</li>
+					<li>11</li>
+					<li>111</li>
+					<li>1111</li>	
+				</ul>
+				<li>11111</li>
+				<li>11111</li>
+				<li>11111</li>
+				<li>11111</li>	
+			</ul>
+			<ul>
+				<li>22222</li>
+				<li>22222</li>
+				<li>22222</li>
+				<li>22222</li>
+				<li>22222</li>
+			</ul>
+		</div>
+	</body>
+</html>

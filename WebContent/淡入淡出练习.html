@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				list-style-type:none;
+				display:flex;
+			}
+			
+			img{
+				width:400px;
+				height:300px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.4.1/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("li").hover(
+					//鼠标移入时触发
+					function(){
+						//所选元素的兄弟元素淡出至0.5透明度
+						$(this).siblings().stop().fadeTo(1000,0.5);
+					},
+					//鼠标移出触发
+					function(){
+						$(this).siblings().stop().fadeTo(1000,1);
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><img src="images/风车.jpg"></li>
+			<li><img src="images/地球.jpeg"></li>
+			<li><img src="images/麋鹿.jpg"></li>
+			<li><img src="images/星空.jpg"></li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			.outer{
+				width:300px;
+				height:300px;
+				background-color:gray;
+			}
+			.inner{
+				width:100px;
+				height:100px;
+				background-color:greenyellow;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-3.4.1/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			/*
+				jQuery对象转换成DOM对象,index是索引号（可相互转换）
+				${"div"}[index]
+				${"div"}.get(index);
+				
+				
+				选择器允许您对 DOM 元素组或单个 DOM 节点进行操作。（类似于css选择器，ul下的所有li，则是“ul li”）
+				jQuery 选择器
+				选择器	实例	选取
+				*	$("*")	所有元素
+				#id	$("#lastname")	id="lastname" 的元素
+				.class	$(".intro")	所有 class="intro" 的元素
+				element	$("p")	所有 <p> 元素
+				.class.class	$(".intro.demo")	所有 class="intro" 且 class="demo" 的元素
+				 	 	 
+				:first	$("p:first")	第一个 <p> 元素
+				:last	$("p:last")	最后一个 <p> 元素
+				:even	$("tr:even")	所有偶数 <tr> 元素
+				:odd	$("tr:odd")	所有奇数 <tr> 元素
+				 	 	 
+				:eq(index)	$("ul li:eq(3)")	列表中的第四个元素（index 从 0 开始）
+				:gt(no)	$("ul li:gt(3)")	列出 index 大于 3 的元素
+				:lt(no)	$("ul li:lt(3)")	列出 index 小于 3 的元素
+				:not(selector)	$("input:not(:empty)")	所有不为空的 input 元素
+				 	 	 
+				:header	$(":header")	所有标题元素 <h1> - <h6>
+				:animated	 	所有动画元素
+				 	 	 
+				:contains(text)	$(":contains('W3School')")	包含指定字符串的所有元素
+				:empty	$(":empty")	无子（元素）节点的所有元素
+				:hidden	$("p:hidden")	所有隐藏的 <p> 元素
+				:visible	$("table:visible")	所有可见的表格
+				 	 	 
+				s1,s2,s3	$("th,td,.intro")	所有带有匹配选择的元素
+				 	 	 
+				[attribute]	$("[href]")	所有带有 href 属性的元素
+				[attribute=value]	$("[href='#']")	所有 href 属性的值等于 "#" 的元素
+				[attribute!=value]	$("[href!='#']")	所有 href 属性的值不等于 "#" 的元素
+				[attribute$=value]	$("[href$='.jpg']")	所有 href 属性的值包含以 ".jpg" 结尾的元素
+				 	 	 
+				:input	$(":input")	所有 <input> 元素
+				:text	$(":text")	所有 type="text" 的 <input> 元素
+				:password	$(":password")	所有 type="password" 的 <input> 元素
+				:radio	$(":radio")	所有 type="radio" 的 <input> 元素
+				:checkbox	$(":checkbox")	所有 type="checkbox" 的 <input> 元素
+				:submit	$(":submit")	所有 type="submit" 的 <input> 元素
+				:reset	$(":reset")	所有 type="reset" 的 <input> 元素
+				:button	$(":button")	所有 type="button" 的 <input> 元素
+				:image	$(":image")	所有 type="image" 的 <input> 元素
+				:file	$(":file")	所有 type="file" 的 <input> 元素
+				 	 	 
+				:enabled	$(":enabled")	所有激活的 input 元素
+				:disabled	$(":disabled")	所有禁用的 input 元素
+				:selected	$(":selected")	所有被选取的 input 元素
+				:checked	$(":checked")	所有被选中的 input 元素
+				
+				
+				Query CSS 选择器
+				jQuery CSS 选择器可用于改变 HTML 元素的 CSS 属性。（不能使用obj.style.name来修改）
+
+				下面的例子把所有 p 元素的背景颜色更改为红色：
+
+				实例
+				$("p").css("background-color","red");
+			*/
+			//加载文档，类似于DOMContentLoaded
+			//$(document).ready(function(){
+				//alert("111");
+				//$(".inner").hide();
+			//});
+			//加载文档，类似于DOMContentLoaded(文档的dom元素加载完，和window.onload有区别)
+			//window.addEventListener("DOMContentLoaded",function(){
+				//var outer = document.querySelector(".outer");
+				//alert(outer);
+				//});
+			$(function(){//入口函数
+				$(".inner").hide();	//$是jQuery的别称，也是jQuery的顶级对象
+				var outer = document.querySelector(".outer");//原生js获得的是DOM对象，jQuery获得的是jQuery对象，本质是对DOM对象进行了包装
+				//DOM对象只能使用原生的js属性和方法，jQuery只能使用jQuery方法
+				//outer.hide();//报错
+				//outer.style.display = "none";//正确
+				//alert(outer);
+				//给所有div元素设置背景颜色，jQuery内置遍历循环，给每个元素添加css样式，隐式迭代（遍历内部DOM元素（伪数组形式储存）的过程）
+				$("div").css("background-color","red");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="outer">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>
